@@ -1,0 +1,48 @@
+{
+  "name": "express-react-dev",
+  "version": "0.1.0",
+  "description": "A starting point boilerplate full stack project built with Node, Express, and Create-React-App.",
+  "main": "./server/server.js",
+  "scripts": {
+    "test": "yarn run clean:reports && yarn run test:server && yarn run test:client",
+    "test:server": "cd server && nyc mocha 'tests/**/*.js' --recursive",
+    "test:client": "cd client && yarn test:coverage",
+    "dev:start:server": "nodemon ./server/server.js",
+    "dev:start:client": "cd client && yarn start",
+    "dev:start": "concurrently \"yarn run dev:start:server\" \"yarn run dev:start:client\"",
+    "install": "cd client && yarn install",
+    "clean:reports": "rm -rf ./client/coverage && rm -rf ./coverage"
+  },
+  "engines": {
+    "node": ">=12.12.0",
+    "yarn": ">=1.19.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Raven-s-Eye-Solutions/express-react-dev.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "React"
+  ],
+  "author": "Karsten Rabe <karstenrabe91@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Raven-s-Eye-Solutions/express-react-dev/issues"
+  },
+  "homepage": "https://github.com/Raven-s-Eye-Solutions/express-react-dev#readme",
+  "dependencies": {
+    "morgan": "^1.10.0",
+    "express": "^4.17.1",
+    "concurrently": "^5.3.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.1.3",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0",
+    "supertest": "^4.0.2"
+  }
+}
