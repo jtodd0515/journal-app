@@ -6,6 +6,9 @@ export const Display = () => {
         <div className='p-centered'>
           <h1>Your Entries</h1>
         </div>
+        <div>
+
+        </div>
       </body>
     );
   };
