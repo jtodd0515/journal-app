@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from './Components/Header';
+import Nav from './Components/Nav';
 
 export const App = () => {
   const [time, setTime] = useState(null);
@@ -31,6 +32,7 @@ export const App = () => {
       ) : (
         <p className='pt-2 text-center text-error'>{error}</p>
       )}
+    <Nav />
     </div>
   );
 };
