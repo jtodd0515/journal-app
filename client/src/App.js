@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Header from './Components/Header';
+// feat/text-input
+import Entry from './Components/Entry'
+
 import Nav from './Components/Nav';
+// master
 
 export const App = () => {
   const [time, setTime] = useState(null);
@@ -25,6 +29,7 @@ export const App = () => {
   return (
     <div className='App'>
       <Header />
+      <Entry />
       {!error ? (
         <p className='pt-2 text-center text-success'>
           {!time ? 'Loading...' : `Server time: ${time}`}
