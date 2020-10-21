@@ -1,16 +1,16 @@
+// importing necessary dependencies
 import React, { createContext, useReducer } from "react";
 import { UserReducer } from "../reducers/UserReducer";
-// import decode from "jwt-decode";
+import decode from "jwt-decode";
 
 // creating instance of context
 export const UserContext = createContext();
 
-
 // exporting user context to be used in other parts of the application
 export const UserContextProvider = ({ children }) => {
   const [user, dispatch] = useReducer(UserReducer, { loggedIn: false }, () => {
-    const loggedIn = state;
-    if (loggedIn) {
+    const token = localStorage.getItem("token");
+    if (token) {
       const currentTime = Date.now() / 1000;
       try {
         const { exp } = decode(token);
