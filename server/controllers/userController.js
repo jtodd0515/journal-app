@@ -1,14 +1,14 @@
 // importing necessary files and dependencies
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 const { canRegister, canLogin } = require("./validation");
-const { secret } = require("../config/keys");
+// const { secret } = require("../config/keys");
 
 // exporting methods for testing and validating user input when registering and logging in
 module.exports = {
   RegistrationController: async (req, res) => {
-    const { username, password } = req.body;
+    const { username, email, password, name } = req.body;
 
     const { err } = await canRegister(req.body);
     if (err) return res.status(400).send(error.details[0].message);
@@ -19,18 +19,18 @@ module.exports = {
 
     const salt = await bcrypt.genSalt();
     const hash = await bcrypt.hash(password, salt);
-    const newUser = new User({ username, password: hash });
+    const newUser = new User({ username, email, password: hash, name });
 
     try {
       const savedUser = await newUser.save();
 
-      const jwt_payload = {
-        id: savedUser._id,
-        username: savedUser.username,
-      };
+    //   const jwt_payload = {
+    //     id: savedUser._id,
+    //     username: savedUser.username,
+    //   };
 
-      const token = await jwt.sign(jwt_payload, secret, { expiresIn: "1hr" });
-      res.status(200).send({ token: `Bearer ${token}` });
+    //   const token = await jwt.sign(jwt_payload, secret, { expiresIn: "1hr" });
+      res.status(200).send({ id: savedUser.id });
     } catch (error) {
       console.log(error);
       res.status(400).send(error);
@@ -50,12 +50,12 @@ module.exports = {
     if (!matching)
       return res.status(400).send("Username or password is incorrect!");
 
-    const jwt_payload = {
-      id: existingUser._id,
-      username: existingUser.username,
-    };
+    // const jwt_payload = {
+    //   id: existingUser._id,
+    //   username: existingUser.username,
+    // };
 
-    const token = await jwt.sign(jwt_payload, secret, { expiresIn: "1hr" });
-    res.status(200).send({ token: `Bearer ${token}` });
+    // const token = await jwt.sign(jwt_payload, secret, { expiresIn: "1hr" });
+    res.status(200).send({ id: existingUser.id });
   },
 };

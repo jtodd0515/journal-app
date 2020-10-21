@@ -32,7 +32,7 @@ app.use(function (req, res) {
 
 // Connect to the Mongo DB, handle depreciation warnings
 mongoose
-    .connect(process.env.MONGODB_URI || "mongodb://localhost/reactcalendar", {
+    .connect(process.env.MONGODB_URI || "mongodb://localhost/journal", {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false
