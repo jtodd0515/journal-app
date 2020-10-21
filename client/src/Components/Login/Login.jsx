@@ -7,9 +7,7 @@ export const Login = () => {
           <h1>Welcome to Journal</h1>
         </div>
         <div>
-            
         </div>
-
       </body>
     );
   };

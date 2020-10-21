@@ -7,7 +7,6 @@ export const Display = () => {
           <h1>Your Entries</h1>
         </div>
         <div>
-
         </div>
       </body>
     );
