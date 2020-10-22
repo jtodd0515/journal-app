@@ -6,17 +6,13 @@ const {
   LoginController,
 } = require("../controllers/userController");
 
-// router.get('/current-time', (req, res) => {
-//   const unixTime = new Date().getTime();
-//   res.json({ time: unixTime });
-// });
 
-router.post("/api/user/register", RegistrationController);
+router.post("/user/register", RegistrationController);
 
-router.post("/api/user/login", LoginController);
+router.post("/user/login", LoginController);
 
 router.post(
-  "/api/user/validate",
+  "/user/validate",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     console.log(req.user);

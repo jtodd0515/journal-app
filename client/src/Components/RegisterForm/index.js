@@ -112,7 +112,7 @@ const RegistrationForm = () => {
           <Box>
             <TextField
               className={classes.root}
-              id="outlined-basic email"
+              id="outlined-basic name"
               label="name"
               value={name}
               variant="outlined"
