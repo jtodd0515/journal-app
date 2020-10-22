@@ -53,10 +53,11 @@ const RegistrationForm = () => {
     if (password === match) {
       try {
         const response = await SendRegistration(username, email, password, name);
+        console.log(response);
         dispatch({
           type: "REGISTRATION_SUCCEEDED",
           payload: {
-            reply: response.data,
+            token: response.data.token,
             message: "Thanks for Registering!",
           },
         });
@@ -82,7 +83,7 @@ const RegistrationForm = () => {
   };
 
   if (authorized) {
-    content = <Redirect to="/" />;
+    content = <Redirect to="/userhome" />;
   } else if (registered) {
     content = <Redirect to="/login" />;
   } else {
@@ -133,7 +134,7 @@ const RegistrationForm = () => {
           <Box>
             <TextField
               className={classes.root}
-              id="outlined-basic password"
+              id="outlined-basic match"
               label="Re-enter Password"
               value={match}
               type="password"
