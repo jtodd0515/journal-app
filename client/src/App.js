@@ -1,7 +1,11 @@
 import React from 'react';
 import Nav from './Components/Nav';
-// master
+import Login from './Pages/Login';
+import Register from './Pages/Register';
+import UserHome from './Pages/UserHome';
+import Welcome from './Pages/Welcome';
 
+// master
 export const App = () => {
 
   return (
