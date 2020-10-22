@@ -64,7 +64,7 @@ const LoginForm = () => {
   };
 
   auth
-    ? (content = <Redirect to="/ballot" />)
+    ? (content = <Redirect to="/" />)
     : (content = (
         <Container className={classes.container}>
           <form onSubmit={handleFormSubmit} noValidate autoComplete="off">

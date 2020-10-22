@@ -18,8 +18,9 @@ module.exports = {
 
     const salt = await bcrypt.genSalt();
     const hash = await bcrypt.hash(password, salt);
-    const newUser = new User({ username, password: hash });
-
+    const newUser = new User({ username, email, password: hash, name: {first: name.split(" ")[0], last: name.split(" ")[1]} });
+    console.log(newUser)
+    
     try {
       const savedUser = await newUser.save();
 

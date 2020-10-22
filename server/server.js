@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const PORT = process.env.PORT || 9001;
@@ -13,11 +14,11 @@ process.env.NODE_ENV === 'production'
   ? app.use(morgan('common'))
   : app.use(morgan('dev'));
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+  
 // Tell node where to serve static files from
 app.use(express.static(path.join(__dirname, '../client/public')));
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/public/index.html'));
-});
 
 // Using passport for authentication
 app.use(passport.initialize());
@@ -38,7 +39,11 @@ mongoose
         useFindAndModify: false
     })
     .then(console.log("Database is connected"))
-    .catch(err => console.log(err));
+  .catch(err => console.log(err));
+    
+  app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/public/index.html"));
+  });
 
 const server = app.listen(PORT).on('listening', () => {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

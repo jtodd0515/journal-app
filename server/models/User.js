@@ -30,7 +30,8 @@ const userSchema = new Schema({
     },
   verified: {
         type: Boolean,
-        default: false,
+        default: true,
+        //defaulting to true until verification service is set up
     },
   created: {
     type: Date,
