@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { Redirect } from "react-router-dom";
-import { UserContext } from "../../context/contexts/UserContext";
+import { UserContext } from "../../Context/contexts/UserContext";
 import { SendRegistration } from "./action";
 import { Typography } from "@material-ui/core";
 
