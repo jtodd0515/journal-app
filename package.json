@@ -34,6 +34,7 @@
   "homepage": "https://github.com/Raven-s-Eye-Solutions/express-react-dev#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
+    "pg": "^8.4.1",
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
     "bcryptjs": "^2.4.3",
