@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // registration information posted by user and exported for other parts of application
-export const SendRegistration = async (username, password) => {
+export const SendRegistration = async (username, email, password, name) => {
   try {
     const reply = axios({
       method: "POST",

@@ -10,6 +10,7 @@ module.exports = {
     const { username, email, password, name } = req.body;
 
     const { err } = await canRegister(req.body);
+    console.log(err)
     if (err) return res.status(400).send(error.details[0].message);
 
     const usernameIsRegistered = await User.findOne({ username });
@@ -23,6 +24,7 @@ module.exports = {
     
     try {
       const savedUser = await newUser.save();
+      console.log(savedUser)
 
       const jwt_payload = {
         id: savedUser._id,

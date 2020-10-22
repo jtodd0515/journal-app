@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 import { Redirect } from "react-router-dom";
-import { UserContext } from "../../context/contexts/UserContext";
+import { UserContext } from "../../Context/contexts/UserContext";
 import SendLoginInfo from "./action";
 import { Typography } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
@@ -40,7 +40,6 @@ const LoginForm = () => {
   const auth = user.loggedIn;
   const message = user.message;
   let content;
-  console.log(message);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -64,7 +63,7 @@ const LoginForm = () => {
   };
 
   auth
-    ? (content = <Redirect to="/" />)
+    ? (content = <Redirect to="/userhome" />)
     : (content = (
         <Container className={classes.container}>
           <form onSubmit={handleFormSubmit} noValidate autoComplete="off">
