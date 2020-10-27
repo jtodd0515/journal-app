@@ -66,7 +66,7 @@ export default function MenuAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Entries
+            JournalME
           </Typography>
           {auth && (
             <div>

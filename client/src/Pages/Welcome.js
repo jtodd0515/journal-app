@@ -24,7 +24,7 @@ const Welcome = () => {
   return (
     <Container>
       <Box className={classes.header}>
-        <Typography variant="h2">Welcome to The Journal App</Typography>
+        <Typography variant="h2">Welcome to JournalME</Typography>
         <Button
           className={classes.button}
           variant="outlined"
