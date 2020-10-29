@@ -130,3 +130,4 @@ AppBarNav.propTypes = {
 // exporting component to be used in other parts of the application
 
 export default AppBarNav;
+

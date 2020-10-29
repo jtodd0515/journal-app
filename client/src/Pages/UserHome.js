@@ -24,7 +24,7 @@ const UserHome = () => {
   return (
     <Container>
       <Box className={classes.header}>
-        <Typography variant="h2">Users Home Page</Typography>
+        <Typography variant="h2">My Home Page</Typography>
       </Box>
     </Container>
   );
