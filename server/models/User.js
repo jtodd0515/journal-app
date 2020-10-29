@@ -27,7 +27,13 @@ const userSchema = new Schema({
             type: String,
             required: true,
         }
-    },
+  },
+  entries: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Entry"
+      }
+    ],
   verified: {
         type: Boolean,
         default: true,

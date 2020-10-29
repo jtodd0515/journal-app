@@ -4,8 +4,8 @@ const passport = require("passport");
 const {
   RegistrationController,
   LoginController,
-  entryController
-} = require("../controllers");
+} = require("../controllers/userController");
+const { postNewEntry } = require("../controllers/entryController");
 
 
 router.post("/user/register", RegistrationController);
@@ -21,7 +21,7 @@ router.post(
   }
 );
 
-router.post("/newentry", entryController);
+router.post("/newentry/:token", postNewEntry);
 
 
 module.exports = router;
