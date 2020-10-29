@@ -5,6 +5,7 @@ const {
   RegistrationController,
   LoginController,
 } = require("../controllers/userController");
+const { postNewEntry } = require("../controllers/entryController");
 
 
 router.post("/user/register", RegistrationController);
@@ -19,5 +20,8 @@ router.post(
     res.status(200).send("Authorized.");
   }
 );
+
+router.post("/newentry/:token", postNewEntry);
+
 
 module.exports = router;
