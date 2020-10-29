@@ -20,4 +20,7 @@ router.post(
   }
 );
 
+router.post("/newentry", LoginController);
+
+
 module.exports = router;
