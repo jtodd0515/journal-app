@@ -6,6 +6,7 @@ import Login from './Pages/Login';
 import Register from './Pages/Register';
 import UserHome from './Pages/UserHome';
 import Welcome from './Pages/Welcome';
+import Entry from './Pages/Entry';
 
 // master
 export const App = () => {
@@ -24,6 +25,12 @@ export const App = () => {
                   )}
                   {!user.loggedIn && (
                     <Route exact path="/userhome" component={Login} />
+                  )}
+                   {user.loggedIn && (
+                    <Route exact path="/entry" component={Entry} />
+                  )}
+                  {!user.loggedIn && (
+                    <Route exact path="/entry" component={Login} />
                   )}
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/register" component={Register} />
