@@ -21,7 +21,7 @@ router.post(
   }
 );
 
-router.post("/newentry/:token", postNewEntry);
+router.post("/entries/:token", postNewEntry);
 
 router.get("/entries/:token", getUserEntries);
 
