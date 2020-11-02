@@ -17,5 +17,16 @@ module.exports = {
             res.status(422).json(err);
         }
     },
+    getUserEntries: async (req, res) => {
+        try {
+            let decoded = await jwt.decode(req.params.token);
+
+            db.Entry.findById(decoded.id)
+                .populate("entries")
+                .then(dbModel => res.json(dbModel))
+        } catch (err) {
+            res.status(422).json(error);
+        }
+    }
 
 }

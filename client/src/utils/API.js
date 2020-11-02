@@ -5,5 +5,8 @@ export default {
         console.log(token)
         console.log(data)
         return axios.post(`/api/newentry/${token}`, data)
+    },
+    getEntries: token => {
+        return axios.get(`/api/entries/${token}`)
     }
 }
