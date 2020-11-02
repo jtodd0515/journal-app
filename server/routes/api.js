@@ -5,7 +5,7 @@ const {
   RegistrationController,
   LoginController,
 } = require("../controllers/userController");
-const { postNewEntry } = require("../controllers/entryController");
+const { postNewEntry, getUserEntries } = require("../controllers/entryController");
 
 
 router.post("/user/register", RegistrationController);
@@ -21,7 +21,9 @@ router.post(
   }
 );
 
-router.post("/newentry/:token", postNewEntry);
+router.post("/entries/:token", postNewEntry);
+
+router.get("/entries/:token", getUserEntries);
 
 
 module.exports = router;
