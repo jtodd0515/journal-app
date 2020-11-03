@@ -43,8 +43,12 @@ const UserHome = () => {
   const loadUsersEntries = async () => {
     try {
       const response = await API.getEntries(user.token);
-      console.log(response.data.entries);
-      setEntries(response.data.entries);
+      const cleanData = response.data.entries.map(entry => ({
+        ...entry,
+        datePosted: new Date(entry.createdAt).toDateString()
+      }));
+      console.log(cleanData);
+      setEntries(cleanData);
     } catch (err) {
       console.log(err);
     }
@@ -57,13 +61,13 @@ const UserHome = () => {
       </Box>
       <div className={classes.root}>
         {entries.map((entry, i) => (
-          <Accordion>
+          <Accordion key={i}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className={classes.heading}>{entry.entryTitle} {entry.createdAt}</Typography>
+              <Typography className={classes.heading}>{entry.datePosted} | {entry.entryTitle} </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>{entry.entryBody}</Typography>
