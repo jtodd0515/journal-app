@@ -123,9 +123,9 @@ const AppBarNav = props => {
     );
 };
 
-AppBarNav.propTypes = {
-    width: PropTypes.oneOf(["lg", "md", "sm", "xl", "xs"]).isRequired
-};
+// AppBarNav.propTypes = {
+//     width: PropTypes.oneOf(["lg", "md", "sm", "xl", "xs"]).isRequired
+// };
 
 // exporting component to be used in other parts of the application
 
