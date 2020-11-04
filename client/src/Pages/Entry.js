@@ -34,7 +34,9 @@ export default function EntryForm() {
     }
   };
   
-
+  if (redirect) {
+    return <Redirect to='/userhome'/>;
+  }
   return (
     <Container maxWidth="sm" className={classes.Container}>
       <FormGroup className={classes.FormGroup}>
