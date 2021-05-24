@@ -75,7 +75,7 @@ const RegistrationForm = () => {
     } else {
       dispatch({
         type: "REGISTRATION_FAILED",
-        payload: { message: "Passwords dont match!" },
+        payload: { message: "Passwords don't match!" },
       });
       setPassword("");
       setMatch("");
